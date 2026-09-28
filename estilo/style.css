@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+/* Classes base e utilitárias usadas no layout. */
+
+img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.center {
+    max-width: 1280px;
+    padding: 0 2%;
+    margin: 0 auto;
+}
+
+.w33 {
+    width: 33.3%;
+}
+
+.w50 {
+    padding: 0 2%;
+    width: 50%;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Estilos específicos do site público. */
+
+/* Mensagem de sucesso do envio de formulário. */
+.sucesso {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 60px;
+    z-index: 999;
+    padding: 15px 2%;
+    color: #008000;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #DFF2BF;
+}
+
+/* Mensagem de erro do envio de formulário. */
+.erro {
+    display: none;
+    position: fixed;
+    right: 20px;
+    top: 60px;
+    z-index: 999;
+    padding: 15px 2%;
+    color: #3c2a42;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #f1ced3;
+}
+
+/* Camada exibida enquanto uma requisição AJAX está em andamento. */
+.overlay-loading {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.overlay-loading img {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Cabeçalho e navegação principal. */
+header {
+    padding: 20px 0;
+    background-color: #3d437a;
+}
+
+header .logo {
+    font-size: 25px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.mobile {
+    display: none;
+}
+
+nav.desktop ul {
+    margin-top: 6px;
+    list-style: none;
+}
+
+nav.desktop li {
+    font-weight: 300;
+    font-size: 15px;
+    padding: 0 30px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+nav.desktop a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Área principal do slider. */
+section.banner-container {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.banner-single {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Camada escura sobre as imagens do banner. */
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(51, 51, 51, 0.7);
+}
+
+/* Formulário centralizado sobre o banner. */
+section.banner-container form {
+    width: 93%;
+    max-width: 600px;
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+container form h2 {
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+    text-align: center;
+}
+
+section.banner-container form input[type=email] {
+    width: 100%;
+    height: 66px;
+    margin-top: 10px;
+    background-color: white;
+    color: #333;
+    font-size: 22px;
+    padding-left: 10px;
+}
+
+section.banner-container form input[type=submit] {
+    width: 100%;
+    height: 66px;
+    margin-top: 10px;
+    background-color: #00c59e;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    border: 0;
+}
+
+/* Seção de apresentação do autor. */
+section.descricao-autor {
+    padding: 30px 0;
+}
+
+section.descricao-autor h2 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #444;
+}
+
+section.descricao-autor p {
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Seção das tecnologias/especialidades. */
+section.especialidades {
+    padding: 40px 0;
+    background-color: #E2E2E2;
+}
+
+section.especialidades h2.title {
+    font-size: 30px;
+    font-weight: 400;
+    color: #999;
+    text-align: center;
+}
+
+.box-especialidade {
+    margin: 40px 0;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.box-especialidade h3 {
+    font-size: 40px;
+    color: #404580;
+}
+
+.box-especialidade h4 {
+    color: #2b2a2a;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.box-especialidade p {
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Seção de depoimentos e serviços. */
+section.extras {
+    padding: 30px 0;
+    background-color: #404580;
+}
+
+.servicos-container,
+.depoimentos-container {
+    padding: 0 30px;
+}
+
+section.extras .title {
+    color: white;
+    font-weight: 300;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.depoimentos-single {
+    padding: 15px 0;
+    border-bottom: 1px solid #5056A0;
+}
+
+.depoimento-descricao {
+    font-size: 15px;
+    color: white;
+}
+
+p.nome-autor {
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.servicos ul {
+    margin: 20px 0;
+    list-style-position: inside;
+}
+
+.servicos li {
+    font-size: 15px;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+/* Rodapé. */
+footer {
+    background-color: #313462;
+    padding: 30px 0;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+footer.fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos da página de erro 404. */
+section.erro-404 {
+    padding: 30px 0;
+}
+
+section.erro-404 h2 {
+    text-align: center;
+    color: #444;
+    font-weight: 400;
+    border-top: 2px solid #444;
+    margin-top: 20px;
+}
+
+section.erro-404 h3 {
+    text-align: center;
+    color: #444;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+section.erro-404 h3 a {
+    text-decoration: none;
+    color: blue;
+}
+
+/* Espaço reservado para o Google Maps. */
+#map {
+    width: 100%;
+    height: 400px;
+}
+
+/* Área que centraliza o formulário de contato. */
+.contato-container {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.contato-container input[type=text] {
+    margin: 8px 0;
+    width: 100%;
+    height: 30px;
+    padding-left: 8px;
+    font-size: 16px;
+    max-width: 800px;
+    color: #444;
+    border: 1px solid #ccc;
+}
+
+.contato-container textarea{
+    margin: 8px 0;
+    width: 100%;
+    height: 120px;
+    padding: 8px;
+    font-size: 16px;
+    max-width: 800px;
+    color: #444;
+    resize: vertical;
+    border: 1px solid #ccc;
+}
+
+.contato-container input[type=submit] {
+    background-color: #00C59E;
+    width: 140px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Indicadores de navegação do slider. */
+.bullets {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5;
+}
+
+.bullets span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #444;
+}
+
+.bullets span.active-slider {
+    background-color: white;
+}
+
+/* Ajustes para telas menores. */
+@media screen and (max-width: 768px) {
+
+    img {
+        float: none !important;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .w50 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .w33 {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/* Substitui o menu desktop pelo menu mobile. */
+@media screen and (max-width: 700px) {
+    nav.desktop {
+        display: none;
+    }
+
+    nav.mobile {
+        display: block;
+    }
+
+    .menu-mobile {
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+
+    nav.mobile ul {
+        top: 55px;
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav.mobile li {
+        font-weight: 300;
+        display: block;
+        background-color: white;
+        border: 1px solid #ccc;
+        font-size: 17px;
+        padding: 8px 0;
+    }
+
+    nav.mobile li a {
+        display: block;
+        color: #444;
+        text-decoration: none;
+    }
+}
